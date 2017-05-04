@@ -15,6 +15,7 @@ class App extends Component {
         this.setState({ query: e.target.value });
     }
     search() {
+        console.log("Search Called");
         console.log(this.state.query);
     }
 
@@ -24,7 +25,8 @@ class App extends Component {
                 <InputGroup>
                     <FormControl type="text" placeholder="Search Artists" onChange={this.setQuery.bind(this)} onKeyPress={
                         (k) => {
-                            console.log(k.target.value);
+                            if (k.charCode == 13)
+                               this.search();
                         }
                     } />
                     <InputGroup.Addon>
