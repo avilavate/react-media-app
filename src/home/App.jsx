@@ -3,9 +3,8 @@ import React, { Component } from 'react';
 import '../styles/App.css';
 import Gallery from '../profile/Gallery';
 import getUrl from '../config/util.js';
-import Configuration from '../config/config.js';
 
-import { FormControl, FormGroup, ControlLabel, HelpBlock, Checkbox, Radio, Button, Glyphicon, Form, InputGroup } from 'react-bootstrap';
+import { FormControl,  Glyphicon,  InputGroup } from 'react-bootstrap';
 
 class App extends Component {
     state = {
@@ -17,7 +16,7 @@ class App extends Component {
         this.setState({ query: e.target.value });
     }
     search() {
-        console.log(getUrl());
+        console.log(getUrl({ 'Query': 'beatles', 'Market': 'India' }));
         console.log(this.state.query);
     }
 
@@ -27,7 +26,7 @@ class App extends Component {
                 <InputGroup>
                     <FormControl type="text" placeholder="Search Artists" onChange={this.setQuery.bind(this)} onKeyPress={
                         (k) => {
-                            if (k.charCode == 13)
+                            if (k.charCode === 13)
                                 this.search();
                         }
                     } />
