@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import '../styles/App.css';
 import Gallery from '../profile/Gallery';
+import getUrl from '../config/util.js';
+import Configuration from '../config/config.js';
 
 import { FormControl, FormGroup, ControlLabel, HelpBlock, Checkbox, Radio, Button, Glyphicon, Form, InputGroup } from 'react-bootstrap';
 
@@ -15,7 +17,7 @@ class App extends Component {
         this.setState({ query: e.target.value });
     }
     search() {
-        console.log("Search Called");
+        console.log(getUrl());
         console.log(this.state.query);
     }
 
@@ -26,7 +28,7 @@ class App extends Component {
                     <FormControl type="text" placeholder="Search Artists" onChange={this.setQuery.bind(this)} onKeyPress={
                         (k) => {
                             if (k.charCode == 13)
-                               this.search();
+                                this.search();
                         }
                     } />
                     <InputGroup.Addon>
