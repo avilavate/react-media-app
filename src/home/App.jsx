@@ -6,17 +6,31 @@ import Gallery from '../profile/Gallery';
 import { FormControl, FormGroup, ControlLabel, HelpBlock, Checkbox, Radio, Button, Glyphicon, Form, InputGroup } from 'react-bootstrap';
 
 class App extends Component {
+    state = {
+        query: ''
+    };
+
+    setQuery(e) {
+        // console.dir(e.target.value);
+        this.setState({ query: e.target.value });
+    }
+    search() {
+        console.log(this.state.query);
+    }
+
     render() {
         return (
             <div className="App">
-                <Form inline>
-                    <InputGroup>
-                        <FormControl type="text" placeholder="Search Artists" />
-                        <InputGroup.Addon>
-                            <Glyphicon glyph="music" />
-                        </InputGroup.Addon>
-                    </InputGroup>
-                </Form>
+                <InputGroup>
+                    <FormControl type="text" placeholder="Search Artists" onChange={this.setQuery.bind(this)} onKeyPress={
+                        (k) => {
+                            console.log(k.target.value);
+                        }
+                    } />
+                    <InputGroup.Addon>
+                        <Glyphicon glyph="music" onClick={this.search.bind(this)} />
+                    </InputGroup.Addon>
+                </InputGroup>
                 <Gallery />
             </div>
         );
