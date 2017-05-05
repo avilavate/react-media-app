@@ -22,7 +22,7 @@ class App extends Component {
         this.setState({ query: e.target.value });
     }
     search() {
-        fetch(getUrl({ 'Query': 'beatles', 'Market': 'India' }))
+        fetch(getUrl({}))
             .then((res => res.json), err => console.log("Error: In getting artist details!"))
             .then(json => { console.log(json) }, err => { console.log("Error: In getting Json!") });
         console.log(this.state.query);
