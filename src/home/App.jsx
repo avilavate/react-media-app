@@ -23,9 +23,9 @@ class App extends Component {
     }
     search() {
         fetch(getUrl({}))
-            .then((res => res.json), err => console.log("Error: In getting artist details!"))
-            .then(json => { console.log(json) }, err => { console.log("Error: In getting Json!") });
-        console.log(this.state.query);
+            .then((res => {alert(res.toString());res= res.json;}), err =>alert("Error: In getting artist details!"))
+            .then(json => { alert(json) }, err => {alert("Error: In getting Json!") });
+        alert(this.state.query);
     }
 
     render() {
