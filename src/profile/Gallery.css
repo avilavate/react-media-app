@@ -11,12 +11,10 @@
 
 .Profile-Genre .Profile-Name{
     text-align: left;
-    align-content:left
+    align-content:left;
+    font-size: 90%;
 }
 
 .Name{
-    font-size: 120%
-}
-.Genre{
-    font-size: 100%
+    font-size: 130%
 }
