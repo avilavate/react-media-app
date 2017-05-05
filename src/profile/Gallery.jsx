@@ -9,7 +9,7 @@ class Gallery extends Component {
         this.state = {
             artist: this.props.artist,
             artistImageUrl: this.props.artist.artists.items["0"].images[0].url ? this.props.artist.artists.items["0"].images[0].url : '',
-            followers: 0,
+            followers: this.props.artist.artists.items["0"].followers.total ? this.props.artist.artists.items["0"].followers.total : 0,
             name: this.props.artist.artists.items["0"].name,
             genres: this.props.artist.artists.items["0"].genres
         }
@@ -28,10 +28,14 @@ class Gallery extends Component {
                         <div className="Genre">
                             {
                                 this.state.genres.map((g, k) => {
-                                    return <span key={k}>{g}</span>
+                                    return <span key={k}>Genre: {g}</span>
                                 })
                             }
+
                         </div></Col>
+                    <Col sm={12} md={10} className="Followers"> <div >Followers: {this.state.followers}</div>
+                    </Col>
+
                 </Row>
             </Grid>
         );
