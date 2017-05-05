@@ -1,0 +1,22 @@
+.Profile-Info{
+    padding: 10px;
+    text-align: left
+}
+
+.Profile-Image{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+}
+
+.Profile-Genre .Profile-Name{
+    text-align: left;
+    align-content:left
+}
+
+.Name{
+    font-size: 120%
+}
+.Genre{
+    font-size: 100%
+}
