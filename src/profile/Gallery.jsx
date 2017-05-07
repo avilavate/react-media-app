@@ -10,8 +10,10 @@ class Gallery extends Component {
         this.state = {
             albums: []
         };
-        console.dir(this.props.artist.artists.items);
-        this.props.artist.artists.items.forEach(function (album) {
+        console.dir(this.props);
+        let albums = !!this.props.artist ? this.props.artist : this.props.offline;
+        console.dir(albums);
+        albums.artists.items.forEach(function (album) {
             this.state.albums.push({
                 artistImageUrl: album.images[0].url ? album.images[0].url : '',
                 followers: album.followers.total ? album.followers.total : 0,
@@ -31,8 +33,8 @@ class Gallery extends Component {
     render() {
         let albumCols = [];
 
-        this.state.albums.forEach(album => {
-            albumCols.push(<Row className="show-grid Profile-Info">
+        this.state.albums.forEach((album, k) => {
+            albumCols.push(<Row key={k} className="show-grid Profile-Info">
                 <Col sm={12} md={2}><img
                     className="Profile-Image"
                     alt="Profile"

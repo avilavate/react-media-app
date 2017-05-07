@@ -14,7 +14,8 @@ class App extends Component {
     componentWillMount() {
         this.state = {
             query: '',
-            artist: artist
+            artist: artist,
+            response: undefined
         };
     }
     setQuery(e) {
@@ -22,10 +23,24 @@ class App extends Component {
         this.setState({ query: e.target.value });
     }
     search() {
-        fetch(getUrl({}))
-            .then((res => {alert(res.toString());res= res.json;}), err =>alert("Error: In getting artist details!"))
-            .then(json => { alert(json) }, err => {alert("Error: In getting Json!") });
-        alert(this.state.query);
+        let requestUrl = getUrl({});
+        console.log(requestUrl);
+        fetch(requestUrl)
+            .then((res => { return res; }), err => alert("Error: In getting artist details!"))
+            .then((res) => {
+
+                let resJson = res.json();
+                return resJson;
+            }, err => console.log("error1", err))
+            .then(b => {
+                console.log("b: ", b);
+                this.setState({ response: b });
+                return true;
+            }, err => console.log("error2", err))
+        // .then(done => {
+        //     if (done)
+        //         console.dir(this.state.response);
+        // })
     }
 
     render() {
@@ -42,7 +57,7 @@ class App extends Component {
                         <Glyphicon glyph="music" onClick={this.search.bind(this)} />
                     </InputGroup.Addon>
                 </InputGroup>
-                <Gallery artist={this.state.artist} />
+                <Gallery artist={this.state.response} offline={this.state.artist} />
             </div>
         );
     }
