@@ -10,17 +10,11 @@ class Gallery extends Component {
         this.state = {
             albums: []
         };
-        console.dir(this.props);
-        let albums = !!this.props.artist ? this.props.artist : this.props.offline;
-        console.dir(albums);
-        albums.artists.items.forEach(function (album) {
-            this.state.albums.push({
-                artistImageUrl: album.images[0].url ? album.images[0].url : '',
-                followers: album.followers.total ? album.followers.total : 0,
-                name: album.name ? album.name : '',
-                genres: album.genres ? album.genres : []
-            })
-        }, this);
+        // console.dir(this.props);
+        // let albums = this.props.artist;
+        // if (!this.props.artist) return;
+
+
         // this.state = {
         //     artist: this.props.artist,
         //     artistImageUrl: this.props.artist.artists.items["2"].images[0].url ? this.props.artist.artists.items["2"].images[0].url : '',
@@ -30,9 +24,28 @@ class Gallery extends Component {
         //     albums: []
         // }
     }
-    render() {
-        let albumCols = [];
 
+    updateAlbums() {
+        console.dir(this.props.artist);
+        if (!this.props.artist) return;
+
+        let albums = this.props.artist.albums || [];
+        albums.items.forEach(function (album) {
+            this.state.albums.push({
+                artistImageUrl: album.images[0].url ? album.images[0].url : '',
+                // followers: album.followers.total ? album.followers.total : 0,
+                name: album.name ? album.name : '',
+                genres: album.genres ? album.genres : []
+            })
+        }, this);
+        
+    }
+
+    render() {
+        this.updateAlbums();
+        let albumCols = [];
+        console.log("Gallery");
+        console.dir(this.props);
         this.state.albums.forEach((album, k) => {
             albumCols.push(<Row key={k} className="show-grid Profile-Info">
                 <Col sm={12} md={2}><img
