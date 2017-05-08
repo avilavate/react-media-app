@@ -6,30 +6,16 @@ import { Grid, Col, Row } from 'react-bootstrap';
 
 class Gallery extends Component {
     componentWillMount() {
-        //Initialization:
         this.state = {
-            albums: []
+            albums: undefined
         };
-        // console.dir(this.props);
-        // let albums = this.props.artist;
-        // if (!this.props.artist) return;
-
-
-        // this.state = {
-        //     artist: this.props.artist,
-        //     artistImageUrl: this.props.artist.artists.items["2"].images[0].url ? this.props.artist.artists.items["2"].images[0].url : '',
-        //     followers: this.props.artist.artists.items["2"].followers.total ? this.props.artist.artists.items["2"].followers.total : 0,
-        //     name: this.props.artist.artists.items["2"].name,
-        //     genres: this.props.artist.artists.items["2"].genres,
-        //     albums: []
-        // }
     }
 
     updateAlbums() {
         console.dir(this.props.artist);
         if (!this.props.artist) return;
 
-        let albums = this.props.artist.albums || [];
+        this.state.albums = this.props.artist.albums || [];
         albums.items.forEach(function (album) {
             this.state.albums.push({
                 artistImageUrl: album.images[0].url ? album.images[0].url : '',
