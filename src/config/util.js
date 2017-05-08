@@ -13,7 +13,6 @@ var processQueryStringOptions = function (options = {}) {
     Object.keys(Configuration.QUERY_PARAMS_DEFAULTS).forEach(k => {
         switch (k) {
             case 'Query':
-                //queryString += `q=${options[k]}`
                 queryString += `q=${optionOrDefault(options[k], k)}`
                 break;
             case 'Item_Type':
