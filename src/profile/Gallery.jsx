@@ -1,16 +1,30 @@
 import React, { Component } from 'react';
 
-import Tracks from '../tracks/Tracks';
+import Tracks from '../tracks/Tracks.jsx';
 import '../profile/Gallery.css';
 import Utils from '../config/util.js';
+import offlineTracks from '../offline-tracks.js';
 
 import { Grid, Col, Row } from 'react-bootstrap';
 
 class Gallery extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            tracks: undefined
+        }
+    }
+
     getTracks(id) {
         let tracksUrl = Utils.getTracksByArtistId(id);
         console.log(tracksUrl);
+        Utils.get(tracksUrl).then(tracks => {
+            this.setState({ tracks: tracks.json() });
+        }, err => {
+            this.setState({ tracks: offlineTracks });
+        })
     }
 
     render() {
@@ -31,9 +45,6 @@ class Gallery extends Component {
                 name: this.props.artist.artists.items[0].name
             }
         }
-
-
-
         return (
             < div >
                 <Grid className="Profile-Info" style={{ float: 'center' }}>
@@ -62,7 +73,7 @@ class Gallery extends Component {
                         </div>
                     </Col>
                 </Grid>
-                <Tracks />
+                <Tracks Tracks={this.state.tracks} />
             </div >
         );
     }

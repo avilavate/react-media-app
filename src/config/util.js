@@ -37,6 +37,12 @@ var getUrl = function (options) {
     return url.trim();
 }
 
+var get = function (url) {
+    if (url) {
+        return fetch(url, { method: 'GET' });
+    }
+}
+
 var getTracksByArtistId = function (id) {
     if (id) {
         return `${Configuration.TRACKs_URL}${id}/top-tracks`;
@@ -45,6 +51,7 @@ var getTracksByArtistId = function (id) {
 
 var Utils = {
     getUrl: getUrl,
+    get: get,
     getTracksByArtistId: getTracksByArtistId
 };
 
