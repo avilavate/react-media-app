@@ -63,7 +63,6 @@ class App extends Component {
         this.setState({ query: e.target.value });
     }
     search() {
-        debugger;
         let requestUrl = Utils.getUrl({ Query: this.state.query });
         let offlineArtist = this.state.offlineArtist;
 

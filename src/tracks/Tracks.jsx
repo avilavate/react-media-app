@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../profile/Gallery.css';
 
 import { Grid, Col, Row } from 'react-bootstrap';
+import './Tracks.css'
 
 
 class Tracks extends Component {
@@ -9,12 +10,15 @@ class Tracks extends Component {
     getTrackUi(ts) {
         console.log(ts);
         let trackRows = ts.map((t, k) => {
-           return <div className="Track" key={k}>
+            return <div style={{ flex: 1 }} key={k}>
                 <img
                     alt={k + "_Track"}
                     src={t.trackImageUrl}
                     className="Track-Image"
                 />
+                <p>
+                    <span>{t.name}</span>
+                </p>
             </div>
         });
 
@@ -36,7 +40,7 @@ class Tracks extends Component {
         let trackRows = this.getTrackUi(tracks);
         console.dir(trackRows)
         return (
-            <div className="App">
+            <div  className="Tracks" style={{ display: 'flex', 'flex-wrap': 'wrap' }}>
                 {trackRows}
             </div>
         )

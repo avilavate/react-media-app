@@ -1,5 +1,23 @@
-.Track{
-    position: relative;
-    float: left
+.wrapper {
+  display: flex;    /* Magic begins */
+  flex-wrap: wrap;  /* Allow multiple lines */
+}
+.wrapperdiv {
+  flex: 1;          /* Distribute space equally among the flex items */
+  min-width: 300px; /* But force them to be at least300px wide */
+}
+
+.Tracks{
+    align-content: center;
+    margin-top: 25px;
+    margin-left: 50px;
+    margin-right: 50px
     
+}
+
+.Track-Image{
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  border: 3px solid orange;
 }
