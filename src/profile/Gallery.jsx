@@ -1,62 +1,60 @@
 import React, { Component } from 'react';
 import '../profile/Gallery.css';
 
-//ToDo: Remove Sample data once tested
-import artist from '../sample-data.js';
-
 import { Grid, Col, Row } from 'react-bootstrap';
 
 class Gallery extends Component {
-    componentWillMount() {
-        this.state = {
-            albums: { items: [] }
-        };
-    }
-
-    componentWillReceiveProps() {
-        if (!this.props.artist) {
-            this.setState({ albums: { items: [] } });
-        } else
-            this.state.albums.items.forEach(function (album) {
-                this.state.albums.push({
-                    artistImageUrl: album.images[0].url ? album.images[0].url : '',
-                    // followers: album.followers.total ? album.followers.total : 0,
-                    name: album.name ? album.name : '',
-                    genres: album.genres ? album.genres : []
-                })
-            }, this);
-
-    }
-
     render() {
-        let albumCols = [];
-        console.log("Gallery");
-        console.dir(this.state.albums);
-        if (!this.state.albums && this.state.albums.items.length < 1) return;
-        this.state.albums.items.forEach((album, k) => {
-            albumCols.push(<Row key={k} className="show-grid Profile-Info">
-                <Col sm={12} md={2}><img
-                    className="Profile-Image"
-                    alt="Profile"
-                    src={album.artistImageUrl}
-                /></Col>
-                <Col sm={12} md={10} className="Profile-Name Name"> <div >{album.name}</div>
-                    <div className="Genre">
-                        {
-                            album.genres.map((g, k) => {
-                                return <span key={k}>Genre: {g}</span>
-                            })
-                        }
-                    </div></Col>
-                <Col sm={12} md={10} className="Followers"> <div >Followers: {album.followers}</div>
-                </Col>
-            </Row>);
-        })
+        let artist = {
+            artistImageUrl: '',
+            followers: 0,
+            genres: [],
+            id: -1
 
+        };
+        if (this.props.artist === undefined) return null;
+        else {
+            artist = {
+                artistImageUrl: this.props.artist.artists.items[0].images[0].url,
+                followers: this.props.artist.artists.items[0].followers.total,
+                genres: this.props.artist.artists.items[0].genres.join(', '),
+                id: this.props.artist.artists.items[0].id,
+                name: this.props.artist.artists.items[0].name
+            }
+        }
         return (
-            <Grid>
-                {albumCols}
-            </Grid>
+            < div >
+                <Grid className="Profile-Info" style={{ float: 'center' }}>
+                    <Row key="image"
+                        style={{ float: 'left' }} >
+                        <div>
+                            <img
+                                alt="Profile"
+                                src={artist.artistImageUrl}
+                                className="Profile-Image"
+                            />
+                        </div>
+                    </Row>
+                    <Col xs={12} sm={6} md={4} lg={4} className="Profile-Info-Container">
+                        <div>
+                            <p>
+                                <span className="Name">{artist.name}</span>
+                            </p>
+                            <p className="Profile-Genre">
+                                <span className="Profile-Genre"> {artist.genres}</span>
+                            </p>
+                            <p>
+                                <span className="Profile-Genre">{artist.followers} Followers</span>
+                            </p>
+                        </div>
+                    </Col>
+                    {/*<Col style={{ maxWidth: '225px' }}
+                        xs={12} sm={6} md={2} lg={2}>
+                        {artist.followers} Followers
+                    </Col>*/}
+                </Grid>
+
+            </div >
         );
     }
 }

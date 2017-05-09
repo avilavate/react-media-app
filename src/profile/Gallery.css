@@ -1,20 +1,31 @@
 .Profile-Info{
     padding: 10px;
-    text-align: left
+    display: flex;
+    align-items: center;
 }
 
 .Profile-Image{
     width: 150px;
     height: 150px;
     border-radius: 75px;
+    border:3px solid orange
+}
+
+.Profile-Info-Container{
+    padding-left: 20px;
+    top:0px
 }
 
 .Profile-Genre .Profile-Name{
     text-align: left;
     align-content:left;
     font-size: 90%;
+     padding: 15px;
+     margin: 15px;
+     left:10px;
 }
 
 .Name{
-    font-size: 130%
+    font-size: 130%;
+    text-align: center
 }
