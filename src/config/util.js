@@ -37,4 +37,15 @@ var getUrl = function (options) {
     return url.trim();
 }
 
-export default getUrl;
+var getTracksByArtistId = function (id) {
+    if (id) {
+        return `${Configuration.TRACKs_URL}${id}/top-tracks`;
+    }
+}
+
+var Utils = {
+    getUrl: getUrl,
+    getTracksByArtistId: getTracksByArtistId
+};
+
+export default Utils;

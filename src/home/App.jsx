@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import '../styles/App.css';
 import Gallery from '../profile/Gallery.jsx';
-import getUrl from '../config/util.js';
+import Utils from '../config/util.js';
 
 //ToDo: Remove Sample data once tested
 
@@ -64,7 +64,7 @@ class App extends Component {
     }
     search() {
         debugger;
-        let requestUrl = getUrl({ Query: this.state.query });
+        let requestUrl = Utils.getUrl({ Query: this.state.query });
         let offlineArtist = this.state.offlineArtist;
 
         fetch(requestUrl, { method: 'GET' })

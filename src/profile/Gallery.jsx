@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
+
+import Tracks from '../tracks/Tracks';
 import '../profile/Gallery.css';
+import Utils from '../config/util.js';
 
 import { Grid, Col, Row } from 'react-bootstrap';
 
 class Gallery extends Component {
+
+    getTracks(id) {
+        let tracksUrl = Utils.getTracksByArtistId(id);
+        console.log(tracksUrl);
+    }
+
     render() {
         let artist = {
             artistImageUrl: '',
@@ -22,6 +31,9 @@ class Gallery extends Component {
                 name: this.props.artist.artists.items[0].name
             }
         }
+
+
+
         return (
             < div >
                 <Grid className="Profile-Info" style={{ float: 'center' }}>
@@ -32,6 +44,7 @@ class Gallery extends Component {
                                 alt="Profile"
                                 src={artist.artistImageUrl}
                                 className="Profile-Image"
+                                onClick={this.getTracks.bind(this, artist.id)}
                             />
                         </div>
                     </Row>
@@ -48,12 +61,8 @@ class Gallery extends Component {
                             </p>
                         </div>
                     </Col>
-                    {/*<Col style={{ maxWidth: '225px' }}
-                        xs={12} sm={6} md={2} lg={2}>
-                        {artist.followers} Followers
-                    </Col>*/}
                 </Grid>
-
+                <Tracks />
             </div >
         );
     }
