@@ -43,9 +43,11 @@ var get = function (url) {
     }
 }
 
-var getTracksByArtistId = function (id, country='us') {
+var getTracksByArtistId = function (id, country = 'us') {
     if (id) {
-        return `${Configuration.TRACKs_URL}${id}/top-tracks?country=${country}`;
+        let url = `${Configuration.TRACKs_URL}${id}/top-tracks?country=${country}`;
+        console.log(url);
+        return url;
     }
 }
 

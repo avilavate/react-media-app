@@ -21,8 +21,10 @@ class Gallery extends Component {
         let tracksUrl = Utils.getTracksByArtistId(id);
         console.log(tracksUrl);
         Utils.get(tracksUrl).then(tracks => {
+            alert(tracks);
             this.setState({ tracks: tracks.json() });
         }, err => {
+            alert(err);
             this.setState({ tracks: offlineTracks });
         })
     }

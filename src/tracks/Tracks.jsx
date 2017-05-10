@@ -8,21 +8,15 @@ import './Tracks.css'
 class Tracks extends Component {
 
     getTrackUi(ts) {
-        console.log(ts);
+        alert(ts);
         let trackRows = ts.map((t, k) => {
             return <div style={{ flex: 1 }} key={k} className="PlayPause">
-                <img
+                <div style={{ background: 'url(t.trackImageUrl)' }}
                     alt={k + "_Track"}
-                    src={t.trackImageUrl}
                     className="Track-Image"
-                />
-                <div className="AudioIcon">
-                    <p >
-                        <Button ><Glyphicon glyph="play" /></Button>
-                    </p>
-
+                >
+                    <span className="AudioIcon"><Glyphicon glyph="play" content="\e072" /></span>
                 </div>
-
                 <p style={{ float: 'center' }}>
                     <span>{t.name}</span>
                 </p>

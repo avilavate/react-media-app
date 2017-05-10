@@ -28,9 +28,8 @@
 }
 
 .AudioIcon { 
-   position: absolute; 
-   top: 25%; 
-   left:25%;
-   align-content: center;
+   position: relative; 
+   top: 40%; 
+   left:45%;
    background: transparent
 }
