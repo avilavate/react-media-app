@@ -15,14 +15,11 @@ class Tracks extends Component {
             hide: []
         }
     }
-
     playPause(k) {
         let newGlyphIcon = this.state.glyphIcon;
-
         newGlyphIcon[k] === this.state.play ?
             newGlyphIcon[k] = this.state.pause :
             newGlyphIcon[k] = this.state.play;
-
         this.setState({ glyphIcon: newGlyphIcon });
     }
 
@@ -40,6 +37,7 @@ class Tracks extends Component {
     shouldHide(k) {
         let newHide = this.state.hide;
         newHide[k] = true;
+        if (this.state.glyphIcon[k] === this.state.pause) newHide[k] = false;
         this.setState({ hide: newHide });
         console.dir("hide array", this.state.hide)
     }
@@ -70,9 +68,15 @@ class Tracks extends Component {
 
         return trackRows;
     }
-
+    componentWillUpdate(newProps, newState) {
+        if (newProps.Tracks) {
+            let length = newProps.Tracks.tracks.length;
+            this.initializeHide(length);
+        }
+    }
     render() {
 
+        console.log("render", this.props);
         if (!this.props.Tracks) return null
         let tracks = [];
 
@@ -83,7 +87,7 @@ class Tracks extends Component {
                 audioUrl: t.album.external_urls.href
             })
         });
-        this.initializeHide(tracks.length);
+        // this.initializeHide(tracks.length);
         let trackRows = this.getTrackUi(tracks);
         console.dir(trackRows)
         return (
