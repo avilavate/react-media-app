@@ -11,24 +11,30 @@ class Tracks extends Component {
         this.state = {
             play: 'play',
             pause: 'pause',
-            glyphIcon: 'play',
+            glyphIcon: [],
             hide: []
         }
     }
 
-    playPause() {
-        this.state.glyphIcon === this.state.play ?
-            this.setState({ glyphIcon: this.state.pause }) :
-            this.setState({ glyphIcon: this.state.play });
+    playPause(k) {
+        let newGlyphIcon = this.state.glyphIcon;
+
+        newGlyphIcon[k] === this.state.play ?
+            newGlyphIcon[k] = this.state.pause :
+            newGlyphIcon[k] = this.state.play;
+
+        this.setState({ glyphIcon: newGlyphIcon });
     }
 
     initializeHide(length) {
         if (this.state.hide.length < 1) {
-            let hide = [];
+            let hide = [], glyphIcon = [];
             for (let i = 0; i < length; i++) {
                 hide.push(true);
+                glyphIcon.push(this.state.play);
             }
             this.setState({ hide: hide });
+            this.setState({ glyphIcon: glyphIcon });
         }
     }
     shouldHide(k) {
@@ -44,18 +50,16 @@ class Tracks extends Component {
         console.dir("hide array", this.state.hide)
     }
     getTrackUi(ts) {
-        //  alert(ts);
-        this.initializeHide(ts.length);
         let trackRows = ts.map((t, k) => {
             return <div style={{ flex: 1 }} key={k} className="PlayPause">
-                <div style={{ background: 'url(t.trackImageUrl)' }}
+                <div style={{ 'backgroundImage': `url(${t.trackImageUrl})` }}
                     alt={k + "_Track"}
                     className="Track-Image"
                     onMouseEnter={this.shouldShow.bind(this, k, ts.length)}
-                    onMouseLeave={this.state.glyphIcon === this.state.play && this.shouldHide.bind(this, k, ts.length)}
+                    onMouseLeave={this.shouldHide.bind(this, k, ts.length)}
                 >
                     <span className={this.state.hide[k] ? 'Hidden' : 'AudioIcon'}>
-                        <Glyphicon glyph={this.state.glyphIcon} onClick={this.playPause.bind(this)} />
+                        <Glyphicon glyph={this.state.glyphIcon[k] || this.state.play} onClick={this.playPause.bind(this, k)} />
                     </span>
                 </div>
                 <p style={{ float: 'center' }}>
@@ -68,6 +72,7 @@ class Tracks extends Component {
     }
 
     render() {
+
         if (!this.props.Tracks) return null
         let tracks = [];
 
@@ -78,11 +83,11 @@ class Tracks extends Component {
                 audioUrl: t.album.external_urls.href
             })
         });
-
+        this.initializeHide(tracks.length);
         let trackRows = this.getTrackUi(tracks);
         console.dir(trackRows)
         return (
-            <div className="Tracks" style={{ display: 'flex', 'flex-wrap': 'wrap' }}>
+            <div className="Tracks" style={{ display: 'flex', 'flexWrap': 'wrap' }}>
                 {trackRows}
             </div>
         )

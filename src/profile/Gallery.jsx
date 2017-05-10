@@ -21,12 +21,14 @@ class Gallery extends Component {
         let tracksUrl = Utils.getTracksByArtistId(id);
         console.log(tracksUrl);
         Utils.get(tracksUrl).then(tracks => {
-           // alert(tracks);
+            // alert(tracks);
             this.setState({ tracks: tracks.json() });
         }, err => {
-          //  alert(err);
-            this.setState({ tracks: offlineTracks });
-        })
+              alert(err);
+
+        });
+
+        if (!this.tracks) this.setState({ tracks: offlineTracks });
     }
 
     render() {
@@ -51,7 +53,7 @@ class Gallery extends Component {
             < div >
                 <Grid className="Profile-Info" style={{ float: 'center' }}>
                     <Row key="image"
-                        style={{  }} >
+                        style={{}} >
                         <div>
                             <img
                                 alt="Profile"
