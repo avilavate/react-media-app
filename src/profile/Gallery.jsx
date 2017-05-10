@@ -24,7 +24,7 @@ class Gallery extends Component {
             // alert(tracks);
             this.setState({ tracks: tracks.json() });
         }, err => {
-              alert(err);
+            alert(err);
 
         });
 
@@ -77,7 +77,12 @@ class Gallery extends Component {
                         </div>
                     </Col>
                 </Grid>
-                <Tracks Tracks={this.state.tracks} />
+                <div className="row">
+                    <div className="col-md-1 col-xs-1"></div>
+                    <div className="col-md-10 col-xs-10" ><Tracks Tracks={this.state.tracks} /></div>
+                    <div className="col-md-1 col-xs-1"></div>
+                </div>
+
             </div >
         );
     }
