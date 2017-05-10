@@ -29,7 +29,10 @@
 
 .AudioIcon { 
    position: relative; 
-   top: 40%; 
-   left:45%;
-   background: transparent
+   top: 30%; 
+   left:35%;
+   background: transparent;
+   font-size: 30px;
 }
+
+.Hidden{ display:none; }
