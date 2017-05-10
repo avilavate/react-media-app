@@ -16,8 +16,21 @@
 }
 
 .Track-Image{
-  width: 100px;
-  height: 100px;
-  border-radius: 15px;
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
   border: 3px solid orange;
+}
+
+.PlayPause { 
+   position: relative; 
+   width: 100%; /* for IE 6 */
+}
+
+.AudioIcon { 
+   position: absolute; 
+   top: 25%; 
+   left:25%;
+   align-content: center;
+   background: transparent
 }

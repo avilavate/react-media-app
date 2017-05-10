@@ -49,7 +49,7 @@ class Gallery extends Component {
             < div >
                 <Grid className="Profile-Info" style={{ float: 'center' }}>
                     <Row key="image"
-                        style={{ float: 'left' }} >
+                        style={{  }} >
                         <div>
                             <img
                                 alt="Profile"
