@@ -66,7 +66,7 @@ class Tracks extends Component {
     }
     getTrackUi(ts) {
         let trackRows = ts.map((t, k) => {
-            return <div style={{ flex: 1 }} key={k} className="PlayPause">
+            return <div style={{ flex: 1, float:'center' }} key={k} className="PlayPause">
                 <div style={{
                     backgroundImage: `url(${t.trackImageUrl})`,
                     backgroundSize: '120px 120px'

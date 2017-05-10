@@ -90,8 +90,7 @@ class App extends Component {
                         <FormControl type="text" placeholder="Search Artists" onChange={this.setQuery.bind(this)} onKeyPress={
                             (k) => {
                                 if (k.charCode === 13)
-                                    //   this.search();
-                                    ;
+                                    this.search.call(this);
                             }
                         } />
                         <InputGroup.Addon>
@@ -99,7 +98,12 @@ class App extends Component {
                         </InputGroup.Addon>
                     </InputGroup>
                 </div>
-                < Gallery artist={this.state.artists} />
+                <div className="row">
+                    <div className="col-md-3 col-xs-3"></div>
+                    <div className="col-md-6 col-xs-6" >< Gallery artist={this.state.artists} /></div>
+                    <div className="col-md-3 col-xs-3"></div>
+                </div>
+
             </div>
         );
     }
