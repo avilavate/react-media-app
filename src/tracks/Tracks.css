@@ -9,7 +9,7 @@
 .Track-Image{
   width: 120px;
   height: 120px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 3px solid orange;
 }
 
@@ -22,8 +22,9 @@
    position: relative; 
    top: 30%; 
    left:35%;
-   background: transparent;
-   font-size: 30px;
+   opacity: 0.7;
+   font-size: 40px;
+   color: white
 }
 
 .Hidden{ display:none; }
