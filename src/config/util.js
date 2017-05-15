@@ -45,7 +45,9 @@ var get = function (url) {
 
 var getTracksByArtistId = function (id, country = 'us') {
     if (id) {
-        let url = `${Configuration.TRACKs_URL}${id}/top-tracks?country=${country}`;
+        let url = Configuration.TRACKs_URL;
+        //To Do: needs changes in openshift api
+        //`${Configuration.TRACKs_URL}${id}/top-tracks?country=${country}`;
         console.log(url);
         return url;
     }

@@ -20,15 +20,20 @@ class Gallery extends Component {
     getTracks(id) {
         let tracksUrl = Utils.getTracksByArtistId(id);
         console.log(tracksUrl);
-        Utils.get(tracksUrl).then(tracks => {
-            // alert(tracks);
-            this.setState({ tracks: tracks.json() });
-        }, err => {
-            alert(err);
-
-        });
-
-        if (!this.tracks) this.setState({ tracks: offlineTracks });
+        fetch(tracksUrl, { method: 'GET' })
+            .then(result => {
+                return result = result.json();
+            }, err => {
+                console.log(err);
+            })
+            .then(
+            tracks => {
+                this.setState({ tracks: tracks });
+            },
+            tracksErr => {
+                console.log(tracksErr);
+            }
+            );
     }
 
     render() {
@@ -78,9 +83,7 @@ class Gallery extends Component {
                     </Col>
                 </Grid>
                 <div className="row">
-                    <div className="col-md-1 col-xs-1"></div>
-                    <div className="col-md-10 col-xs-10" ><Tracks Tracks={this.state.tracks} /></div>
-                    <div className="col-md-1 col-xs-1"></div>
+                    <div className="col-md-12 col-xs-12" ><Tracks Tracks={this.state.tracks} /></div>
                 </div>
 
             </div >
