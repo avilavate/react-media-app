@@ -13,7 +13,7 @@ class Tracks extends Component {
             pause: 'pause',
             glyphIcon: [],
             hide: [],
-            length: 0
+            length: 10
         }
     }
     playPause(k) {
@@ -88,20 +88,21 @@ class Tracks extends Component {
 
         return trackRows;
     }
-    componentWillUpdate(newProps, newState) {
-        if (newProps.Tracks) {
-            let length = newProps.Tracks.tracks.length;
-            this.initializeHide(length);
-        }
-    }
+    // componentWillUpdate(newProps, newState) {
+    //     if (newProps.Tracks) {
+    //         let length = newProps.Tracks.tracks.length;
+    //         this.initializeHide(length);
+    //     }
+    // }
     render() {
+        debugger;
         if (!this.props.Tracks) return null
         let tracks = [];
 
         this.props.Tracks.tracks.forEach(t => {
             tracks.push({
                 trackImageUrl: t.album.images[0].url,
-                name: t.album.name,
+                name: t.name,
                 audioUrl: t.album.external_urls.href
             })
         });
