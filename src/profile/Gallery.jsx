@@ -37,6 +37,7 @@ class Gallery extends Component {
     }
 
     render() {
+        debugger;
         let artist = {
             artistImageUrl: '',
             followers: 0,
