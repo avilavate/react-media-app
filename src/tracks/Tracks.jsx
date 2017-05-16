@@ -17,7 +17,6 @@ class Tracks extends Component {
         }
     }
     playPause(k) {
-        debugger;
         let newGlyphIcon = this.state.glyphIcon.slice();
         let newHide = [];
         newGlyphIcon[k] === this.state.play ?
@@ -88,14 +87,8 @@ class Tracks extends Component {
 
         return trackRows;
     }
-    // componentWillUpdate(newProps, newState) {
-    //     if (newProps.Tracks) {
-    //         let length = newProps.Tracks.tracks.length;
-    //         this.initializeHide(length);
-    //     }
-    // }
+   
     render() {
-        debugger;
         if (!this.props.Tracks) return null
         let tracks = [];
 
