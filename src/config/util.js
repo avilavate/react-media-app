@@ -32,9 +32,9 @@ var processQueryStringOptions = function (options = {}) {
 }
 
 var getUrl = function (options) {
-    let queryString = processQueryStringOptions(options);
-    let url = baseUrlGenerator() + queryString;
-    return url.trim();
+    // let queryString = processQueryStringOptions(options);
+    // let url = baseUrlGenerator() + queryString;
+    return `${Configuration.BASE_URL}?artist=${options.Query}`;
 }
 
 var get = function (url) {

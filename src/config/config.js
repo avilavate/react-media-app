@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.spotify.com/v1/search';
+const BASE_URL = 'https://media-api-media-api.1d35.starter-us-east-1.openshiftapps.com/artists';
 const TRACKs_URL = 'https://media-api-media-api.1d35.starter-us-east-1.openshiftapps.com/tracks';
 const QUERY_PARAMS_DEFAULTS = {
     Query: 'beatles',
