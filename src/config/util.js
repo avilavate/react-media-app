@@ -8,6 +8,10 @@ var optionOrDefault = function (value, key) {
     return value ? value : Configuration.QUERY_PARAMS_DEFAULTS[key];
 }
 
+var trimAndFix = (str, trimLen=9) => {
+    return str.length>13?str.substr(0,trimLen)+"...":str;
+}
+
 var processQueryStringOptions = function (options = {}) {
     let queryString = '';
     Object.keys(Configuration.QUERY_PARAMS_DEFAULTS).forEach(k => {
@@ -54,7 +58,8 @@ var getTracksByArtistId = function (id, country = 'us') {
 var Utils = {
     getUrl: getUrl,
     get: get,
-    getTracksByArtistId: getTracksByArtistId
+    getTracksByArtistId: getTracksByArtistId,
+    trimAndFix:trimAndFix
 };
 
 export default Utils;

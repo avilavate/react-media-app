@@ -3,7 +3,7 @@ import '../profile/Gallery.css';
 
 import { Button, Glyphicon } from 'react-bootstrap';
 import './Tracks.css'
-
+import Utils from '../config/util.js';
 
 class Tracks extends Component {
     constructor(props) {
@@ -74,13 +74,14 @@ class Tracks extends Component {
                     className="Track-Image"
                     onMouseEnter={this.shouldShow.bind(this, k, ts.length)}
                     onMouseLeave={this.shouldHide.bind(this, k, ts.length)}
+                    title={t.name}
                 >
                     <span className={this.state.hide[k] ? 'Hidden' : 'AudioIcon'}>
                         <Glyphicon glyph={this.state.glyphIcon[k]} onClick={this.playPause.bind(this, k)} />
                     </span>
                 </div>
                 <p style={{ float: 'center' }}>
-                    <span>{t.name}</span>
+                    <span>{Utils.trimAndFix(t.name,14)}</span>
                 </p>
             </div >
         });
@@ -103,7 +104,7 @@ class Tracks extends Component {
         let trackRows = this.getTrackUi(tracks);
         console.dir(trackRows)
         return (
-            <div className="Tracks" style={{ display: 'flex', 'flexWrap': 'wrap' }}>
+            <div  className="Tracks" style={{ display: 'flex', 'flexWrap': 'wrap' }}>
                 {trackRows}
             </div>
         )

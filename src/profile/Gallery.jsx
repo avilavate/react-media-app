@@ -37,7 +37,6 @@ class Gallery extends Component {
     }
 
     render() {
-        debugger;
         let artist = {
             artistImageUrl: '',
             followers: 0,
@@ -57,34 +56,39 @@ class Gallery extends Component {
         }
         return (
             < div >
-                <Grid className="Profile-Info" style={{ float: 'center' }}>
-                    <Row key="image"
-                        style={{}} >
-                        <div>
-                            <img
-                                alt="Profile"
-                                src={artist.artistImageUrl}
-                                className="Profile-Image"
-                                onClick={this.getTracks.bind(this, artist.id)}
-                            />
-                        </div>
-                    </Row>
-                    <Col xs={12} sm={6} md={4} lg={4} className="Profile-Info-Container">
-                        <div>
-                            <p>
-                                <span className="Name">{artist.name}</span>
-                            </p>
-                            <p className="Profile-Genre">
-                                <span className="Profile-Genre"> {artist.genres}</span>
-                            </p>
-                            <p>
-                                <span className="Profile-Genre">{artist.followers} Followers</span>
-                            </p>
-                        </div>
-                    </Col>
-                </Grid>
                 <div className="row">
-                    <div className="col-md-12 col-xs-12" ><Tracks Tracks={this.state.tracks} /></div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"> <Grid className="Profile-Info" style={{ float: 'center' }}>
+                        <Row key="image"
+                            style={{}} >
+                            <div>
+                                <img
+                                    alt="Profile"
+                                    src={artist.artistImageUrl}
+                                    className="Profile-Image"
+                                    onClick={this.getTracks.bind(this, artist.id)}
+                                />
+                            </div>
+                        </Row>
+                        <Col className="Profile-Info-Container">
+                            <div>
+                                <p>
+                                    <span className="Name">{artist.name}</span>
+                                </p>
+                                <p className="Profile-Genre">
+                                    <span className="Profile-Genre"> {artist.genres}</span>
+                                </p>
+                                <p>
+                                    <span className="Profile-Genre">{artist.followers} Followers</span>
+                                </p>
+                            </div>
+                        </Col>
+                    </Grid></div>
+                    <div class="col-md-4"></div>
+                </div>
+
+                <div className="row">
+                    <div><Tracks Tracks={this.state.tracks} /></div>
                 </div>
 
             </div >

@@ -56,9 +56,9 @@ class App extends Component {
                     </InputGroup>
                 </div>
                 <div className="row">
-                    <div className="col-md-3 col-xs-3"></div>
-                    <div className="col-md-6 col-xs-6" >< Gallery artist={this.state.artists} /></div>
-                    <div className="col-md-3 col-xs-3"></div>
+                    <div className="col-md-3"></div>
+                    <div className="col-md-6 " >< Gallery artist={this.state.artists} /></div>
+                    <div className="col-md-3 "></div>
                 </div>
 
             </div>
