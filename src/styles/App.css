@@ -11,3 +11,8 @@ body{
     background-color: black;
     color: white;
 }
+
+.Search-Bar{
+    align-content: center;
+    width: 50%
+}

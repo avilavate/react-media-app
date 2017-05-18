@@ -42,19 +42,26 @@ class App extends Component {
     render() {
         return (
             <div>
-                <div className="App">
-                    <InputGroup>
-                        <FormControl type="text" placeholder="Search Artists" onChange={this.setQuery.bind(this)} onKeyPress={
-                            (k) => {
-                                if (k.charCode === 13)
-                                    this.search.call(this);
-                            }
-                        } />
-                        <InputGroup.Addon>
-                            <Glyphicon glyph="music" onClick={this.search.bind(this)} />
-                        </InputGroup.Addon>
-                    </InputGroup>
+                <div className="row">
+                    <div className="col-md-3 col-xs-1"></div>
+                    <div className="col-md-6 col-xs-10" > <div className="App">
+                        <InputGroup>
+
+                            <FormControl type="text" placeholder="Search Artists..." onChange={this.setQuery.bind(this)} onKeyPress={
+                                (k) => {
+                                    if (k.charCode === 13)
+                                        this.search.call(this);
+                                }
+                            } />
+
+                            <InputGroup.Addon>
+                                <Glyphicon glyph="music" onClick={this.search.bind(this)} />
+                            </InputGroup.Addon>
+                        </InputGroup>
+                    </div></div>
+                    <div className="col-md-3 col-xs-1"></div>
                 </div>
+
                 <div className="row">
                     <div className="col-md-3"></div>
                     <div className="col-md-6 " >< Gallery artist={this.state.artists} /></div>
