@@ -11,7 +11,7 @@ var optionOrDefault = function (value, key) {
 var trimAndFix = (str, trimLen=9) => {
     return str.length>13?str.substr(0,trimLen)+"...":str;
 }
-
+// eslint-disable-next-line
 var processQueryStringOptions = function (options = {}) {
     let queryString = '';
     Object.keys(Configuration.QUERY_PARAMS_DEFAULTS).forEach(k => {
@@ -36,8 +36,6 @@ var processQueryStringOptions = function (options = {}) {
 }
 
 var getUrl = function (options) {
-    // let queryString = processQueryStringOptions(options);
-    // let url = baseUrlGenerator() + queryString;
     return `${Configuration.BASE_URL}?artist=${options.Query}`;
 }
 
@@ -59,7 +57,8 @@ var Utils = {
     getUrl: getUrl,
     get: get,
     getTracksByArtistId: getTracksByArtistId,
-    trimAndFix:trimAndFix
+    trimAndFix:trimAndFix,
+    baseUrlGenerator:baseUrlGenerator
 };
 
 export default Utils;

@@ -16,25 +16,15 @@ class Tracks extends Component {
         }
     }
 
-
-    initializeHide(length) {
-        if (this.state.hide.length < 1) {
-            let hide = [], glyphIcon = [];
-            for (let i = 0; i < length; i++) {
-                hide.push(true);
-            }
-            this.setState({ hide: hide });
-        }
-    }
-
     playPause(audioUrl) {
-        let audio = new Audio(audioUrl);
+        let audio = new Audio(audioUrl)
+        let playing = this.state.playing ? false : true;
         this.setState({
-            playing: !this.state.playing,
+            playing: playing,
             playingUrl: audioUrl,
             audio: audio
         });
-        this.state.playing ? audio.play() : audio.pause();
+        this.state.playing ? this.state.audio.play() : this.state.audio.pause();
     }
 
     getTrackUi(ts) {
@@ -49,7 +39,7 @@ class Tracks extends Component {
                     title={t.name}
                     onClick={this.playPause.bind(this, t.audioUrl)}
                 >
-                    {this.state.playingUrl === t.audioUrl ? <Glyphicon glyph="pause" className="AudioIcon" /> : <Glyphicon glyph="play" className="AudioIcon" />}
+                    {this.state.playingUrl === t.audioUrl && this.state.playing === true ? <Glyphicon glyph="pause" className="AudioIcon" /> : <Glyphicon glyph="play" className="AudioIcon" />}
                 </div>
                 <p style={{ float: 'center' }}>
                     <span>{Utils.trimAndFix(t.name, 14)}</span>
