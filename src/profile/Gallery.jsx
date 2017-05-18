@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Tracks from '../tracks/Tracks.jsx';
 import '../profile/Gallery.css';
 import Utils from '../config/util.js';
-import offlineTracks from '../offline-tracks.js';
 
 import { Grid, Col, Row } from 'react-bootstrap';
 
@@ -57,34 +56,39 @@ class Gallery extends Component {
         return (
             < div >
                 <div className="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"> <Grid className="Profile-Info" style={{ float: 'center' }}>
-                        <Row key="image"
-                            style={{}} >
-                            <div>
-                                <img
-                                    alt="Profile"
-                                    src={artist.artistImageUrl}
-                                    className="Profile-Image"
-                                    onClick={this.getTracks.bind(this, artist.id)}
-                                />
-                            </div>
-                        </Row>
-                        <Col className="Profile-Info-Container">
-                            <div>
-                                <p>
-                                    <span className="Name">{artist.name}</span>
-                                </p>
-                                <p className="Profile-Genre">
-                                    <span className="Profile-Genre"> {artist.genres}</span>
-                                </p>
-                                <p>
-                                    <span className="Profile-Genre">{artist.followers} Followers</span>
-                                </p>
-                            </div>
-                        </Col>
+                    <div className="col-md-1"></div>
+                    <div className="col-md-10"> <Grid className="Profile-Info" style={{ float: 'center' }}>
+                        <div className="row">
+                            <div className="col-md-2"><Row key="image"
+                                style={{}} >
+                                <div>
+                                    <img
+                                        alt="Profile"
+                                        src={artist.artistImageUrl}
+                                        className="Profile-Image"
+                                        onClick={this.getTracks.bind(this, artist.id)}
+                                    />
+                                </div>
+                            </Row></div>
+                            <div className="col-md-4"><Col className="Profile-Info-Container">
+                                <div>
+                                    <p>
+                                        <span className="Name">{artist.name}</span>
+                                    </p>
+                                    <p className="Profile-Genre">
+                                        <span className="Profile-Genre"> {artist.genres}</span>
+                                    </p>
+                                    <p>
+                                        <span className="Profile-Genre">{artist.followers} Followers</span>
+                                    </p>
+                                </div>
+                            </Col></div>
+                            <div className="col-md-6"></div>
+                        </div>
+
+
                     </Grid></div>
-                    <div class="col-md-4"></div>
+                    <div className="col-md-1"></div>
                 </div>
 
                 <div className="row">
