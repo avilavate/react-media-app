@@ -54,12 +54,12 @@ class Gallery extends Component {
             }
         }
         return (
-            < div >
+            < div className="container">
                 <div className="row">
-                    <div className="col-md-1"></div>
-                    <div className="col-md-10"> <Grid className="Profile-Info" style={{ float: 'center' }}>
-                        <div className="row">
-                            <div className="col-md-2"><Row key="image"
+                    <div className="col-md-1 "></div>
+                    <div className="col-md-10 "> <Grid className="Profile-Info" style={{ float: 'center' }}>
+                        <div className=" container row">
+                            <div className="col-md-2 "><Row key="image"
                                 style={{}} >
                                 <div>
                                     <img
@@ -70,7 +70,7 @@ class Gallery extends Component {
                                     />
                                 </div>
                             </Row></div>
-                            <div className="col-md-4"><Col className="Profile-Info-Container">
+                            <div className="col-md-4 col-offset-6 "><Col className="Profile-Info-Container">
                                 <div>
                                     <p>
                                         <span className="Name">{artist.name}</span>
@@ -83,18 +83,11 @@ class Gallery extends Component {
                                     </p>
                                 </div>
                             </Col></div>
-                            <div className="col-md-6"></div>
                         </div>
-
-
                     </Grid></div>
                     <div className="col-md-1"></div>
                 </div>
-
-                <div className="row">
-                    <div><Tracks Tracks={this.state.tracks} /></div>
-                </div>
-
+                <div><Tracks Tracks={this.state.tracks} /></div>
             </div >
         );
     }

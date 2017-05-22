@@ -64,8 +64,10 @@ class Tracks extends Component {
         let trackRows = this.getTrackUi(tracks);
         console.dir(trackRows)
         return (
-            <div className="Tracks" style={{ display: 'flex', 'flexWrap': 'wrap' }}>
-                {trackRows}
+            <div className="col-md-8 col-offset-2">
+                <div className="Tracks" style={{ display: 'flex', 'flexWrap': 'wrap' }}>
+                    {trackRows}
+                </div>
             </div>
         )
     }

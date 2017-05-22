@@ -1,9 +1,6 @@
 .Profile-Info{
-    padding: 10px;
     display: flex;
     align-items: center;
-    margin-left: 100px;
-    margin-right: 100px
 }
 
 .Profile-Image{
@@ -14,19 +11,16 @@
 }
 
 .Profile-Info-Container{
-    padding-left: 20px;
-    top:0px
+    top:10px;
 }
 
 .Profile-Genre .Profile-Name{
     text-align: left;
     align-content:left;
     font-size: 90%;
-     padding: 15px;
-     margin: 15px;
-     left:10px;
+     margin: 5px;
+     left:2px;
    word-wrap: break-word;
-     width: 20%
 }
 
 .Name{
