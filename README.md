@@ -7,7 +7,7 @@ App Url: https://media-app-1432b.firebaseapp.com/
 After creation, your project should look like this:
 
 ```
-my-app/
+media-app/
   README.md
   node_modules/
   package.json
