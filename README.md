@@ -28,8 +28,8 @@ media-app/
     styles/
       App.css
     tracks/
-      tracks.jsx  //Sound tracks components
-      tracks.css   
+      Tracks.jsx  //Sound tracks components
+      Tracks.css   
     index.js
    
 ```
