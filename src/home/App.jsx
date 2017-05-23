@@ -41,10 +41,10 @@ class App extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <div className="row">
-                    <div className="col-md-3 col-xs-1"></div>
-                    <div className="col-md-6 col-xs-10" > <div className="App">
+                    
+                    <div className="col-md-6 col-xs-12 col-md-offset-3" > <div className="App">
                         <InputGroup>
 
                             <FormControl type="text" placeholder="Search Artists..." onChange={this.setQuery.bind(this)} onKeyPress={
@@ -59,15 +59,12 @@ class App extends Component {
                             </InputGroup.Addon>
                         </InputGroup>
                     </div></div>
-                    <div className="col-md-3 col-xs-1"></div>
+                 
                 </div>
 
-                <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6 " >< Gallery artist={this.state.artists} /></div>
-                    <div className="col-md-3 "></div>
+                <div>
+                    < Gallery artist={this.state.artists} />
                 </div>
-
             </div>
         );
     }

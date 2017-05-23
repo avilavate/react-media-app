@@ -54,41 +54,44 @@ class Gallery extends Component {
             }
         }
         return (
-            < div className="container">
-                <div className="row">
-                    <div className="col-md-1 "></div>
-                    <div className="col-md-10 "> <Grid className="Profile-Info" style={{ float: 'center' }}>
-                        <div className=" container row">
-                            <div className="col-md-2 "><Row key="image"
-                                style={{}} >
-                                <div>
-                                    <img
-                                        alt="Profile"
-                                        src={artist.artistImageUrl}
-                                        className="Profile-Image"
-                                        onClick={this.getTracks.bind(this, artist.id)}
-                                    />
+            <div>
+                <div className="container">
+                    <div className="row">
+                       
+                        <div className="col-md-4 col-md-offset-4">
+                            <Grid className="Profile-Info" style={{ float: 'center' }}>
+                                <div className=" container row">
+                                    <div className="col-md-2 "><Row key="image"
+                                        style={{}} >
+                                        <div>
+                                            <img
+                                                alt="Profile"
+                                                src={artist.artistImageUrl}
+                                                className="Profile-Image"
+                                                onClick={this.getTracks.bind(this, artist.id)}
+                                            />
+                                        </div>
+                                    </Row></div>
+                                    <div className="col-md-4 col-offset-6 "><Col className="Profile-Info-Container">
+                                        <div>
+                                            <p>
+                                                <span className="Name">{artist.name}</span>
+                                            </p>
+                                            <p className="Profile-Genre">
+                                                <span className="Profile-Genre"> {artist.genres}</span>
+                                            </p>
+                                            <p>
+                                                <span className="Profile-Genre">{artist.followers} Followers</span>
+                                            </p>
+                                        </div>
+                                    </Col></div>
                                 </div>
-                            </Row></div>
-                            <div className="col-md-4 col-offset-6 "><Col className="Profile-Info-Container">
-                                <div>
-                                    <p>
-                                        <span className="Name">{artist.name}</span>
-                                    </p>
-                                    <p className="Profile-Genre">
-                                        <span className="Profile-Genre"> {artist.genres}</span>
-                                    </p>
-                                    <p>
-                                        <span className="Profile-Genre">{artist.followers} Followers</span>
-                                    </p>
-                                </div>
-                            </Col></div>
-                        </div>
-                    </Grid></div>
-                    <div className="col-md-1"></div>
+                            </Grid></div>
+                      
+                    </div>
                 </div>
                 <div><Tracks Tracks={this.state.tracks} /></div>
-            </div >
+            </div>
         );
     }
 }
