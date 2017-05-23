@@ -57,7 +57,7 @@ class Gallery extends Component {
             <div>
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1  col-sm-10 col-s-offset-1">
+                        <div className="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1  col-sm-10 col-sm-offset-1">
                             <Grid className="Profile-Info" style={{ float: 'center' }}>
                                 <div className=" container row">
                                     <div className="col-md-2 "><Row key="image"

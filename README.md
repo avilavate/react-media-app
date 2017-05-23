@@ -15,12 +15,23 @@ my-app/
     index.html
     favicon.ico
   src/
-    App.css
-    App.js
-    App.test.js
-    index.css
+    config/
+       config.js //App wide configurations
+       util.js
+    home/
+       App.jsx  //Search component
+    images/
+       bg.jpeg  //Not used in current version
+    profile/
+       Gallery.jsx //Artist UI and related info component
+       Gallery.css
+    styles/
+      App.css
+    tracks/
+      tracks.jsx  //Sound tracks components
+      tracks.css   
     index.js
-    logo.svg
+   
 ```
 
 For the project to build, **these files must exist with exact filenames**:
