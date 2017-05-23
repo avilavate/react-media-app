@@ -57,8 +57,7 @@ class Gallery extends Component {
             <div>
                 <div className="container">
                     <div className="row">
-                       
-                        <div className="col-md-4 col-md-offset-4">
+                        <div className="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1  col-sm-10 col-s-offset-1">
                             <Grid className="Profile-Info" style={{ float: 'center' }}>
                                 <div className=" container row">
                                     <div className="col-md-2 "><Row key="image"
@@ -72,7 +71,7 @@ class Gallery extends Component {
                                             />
                                         </div>
                                     </Row></div>
-                                    <div className="col-md-4 col-offset-6 "><Col className="Profile-Info-Container">
+                                    <div className="col-md-4"><Col className="Profile-Info-Container">
                                         <div>
                                             <p>
                                                 <span className="Name">{artist.name}</span>
@@ -87,7 +86,7 @@ class Gallery extends Component {
                                     </Col></div>
                                 </div>
                             </Grid></div>
-                      
+
                     </div>
                 </div>
                 <div><Tracks Tracks={this.state.tracks} /></div>

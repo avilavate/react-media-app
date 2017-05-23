@@ -43,25 +43,20 @@ class App extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    
                     <div className="col-md-6 col-xs-12 col-md-offset-3" > <div className="App">
                         <InputGroup>
-
                             <FormControl type="text" placeholder="Search Artists..." onChange={this.setQuery.bind(this)} onKeyPress={
                                 (k) => {
                                     if (k.charCode === 13)
                                         this.search.call(this);
                                 }
                             } />
-
                             <InputGroup.Addon>
                                 <Glyphicon glyph="music" onClick={this.search.bind(this)} />
                             </InputGroup.Addon>
                         </InputGroup>
                     </div></div>
-                 
                 </div>
-
                 <div>
                     < Gallery artist={this.state.artists} />
                 </div>
